@@ -1,0 +1,70 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	2	report
+	1	report_comparisons
+	4
+
+rule report:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.coverageStats.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.coverageStats.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.coverageStats.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.indel_stats_at_cutsites.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.indel_stats_at_cutsites.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.indel_stats_at_cutsites.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.indels.unfiltered.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.indels.unfiltered.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.indels.unfiltered.tsv
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/reports/lin-41.report.html
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41.report.log
+    jobid: 12
+    wildcards: amplicon=lin-41
+
+/home/edanner/anaconda3/bin/Rscript /home/edanner/workspace/pigx_crispr/src/runReport.R  --reportFile=/home/edanner/workspace/pigx_crispr/src/report.Rmd --ampliconFastaFile=/home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_lin-41.fa --ampliconName=lin-41 --cutSitesFile=/home/edanner/workspace/pigx_crispr/sample_data/cutsites/sgRNA_cutsites_lin-41.txt --sampleSheetFile=/home/edanner/workspace/pigx_crispr/sample_data/sample_sheet.csv --indelsFolder=/home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41 --workdir=/home/edanner/workspace/pigx_crispr/sample_data/output/reports --prefix=lin-41 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41.report.log 2>&1
+
+rule report_comparisons:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.coverageStats.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.coverageStats.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.coverageStats.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.indel_stats_at_cutsites.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.indel_stats_at_cutsites.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.indel_stats_at_cutsites.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.indels.unfiltered.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.indels.unfiltered.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.indels.unfiltered.tsv, /home/edanner/workspace/pigx_crispr/sample_data/comparisons.tsv
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/reports/comparisons/dpy-10.report.comparisons.html, /home/edanner/workspace/pigx_crispr/sample_data/output/reports/comparisons/dpy-10.comparison.stats.tsv
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10.report.comparisons.log
+    jobid: 6
+    wildcards: amplicon=dpy-10
+
+/home/edanner/anaconda3/bin/Rscript /home/edanner/workspace/pigx_crispr/src/runReport.comparisons.R  --reportFile=/home/edanner/workspace/pigx_crispr/src/report.comparisons.Rmd --ampliconName=dpy-10 --comparisonsFile=/home/edanner/workspace/pigx_crispr/sample_data/comparisons.tsv --indelsFolder=/home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10 --workdir=/home/edanner/workspace/pigx_crispr/sample_data/output/reports/comparisons --prefix=dpy-10 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10.report.comparisons.log 2>&1
+
+rule report:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.coverageStats.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.coverageStats.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.coverageStats.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.indel_stats_at_cutsites.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.indel_stats_at_cutsites.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.indel_stats_at_cutsites.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.indels.unfiltered.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.indels.unfiltered.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.indels.unfiltered.tsv
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/reports/dpy-10.report.html
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10.report.log
+    jobid: 9
+    wildcards: amplicon=dpy-10
+
+/home/edanner/anaconda3/bin/Rscript /home/edanner/workspace/pigx_crispr/src/runReport.R  --reportFile=/home/edanner/workspace/pigx_crispr/src/report.Rmd --ampliconFastaFile=/home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_dpy-10.fa --ampliconName=dpy-10 --cutSitesFile=/home/edanner/workspace/pigx_crispr/sample_data/cutsites/sgRNA_cutsites_dpy-10.txt --sampleSheetFile=/home/edanner/workspace/pigx_crispr/sample_data/sample_sheet.csv --indelsFolder=/home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10 --workdir=/home/edanner/workspace/pigx_crispr/sample_data/output/reports --prefix=dpy-10 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10.report.log 2>&1
+    Error in rule report_comparisons:
+        jobid: 6
+        output: /home/edanner/workspace/pigx_crispr/sample_data/output/reports/comparisons/dpy-10.report.comparisons.html, /home/edanner/workspace/pigx_crispr/sample_data/output/reports/comparisons/dpy-10.comparison.stats.tsv
+        log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10.report.comparisons.log
+
+RuleException:
+CalledProcessError in line 222 of /home/edanner/workspace/pigx_crispr/pigx_crispr.py:
+Command ' set -euo pipefail;  /home/edanner/anaconda3/bin/Rscript /home/edanner/workspace/pigx_crispr/src/runReport.comparisons.R  --reportFile=/home/edanner/workspace/pigx_crispr/src/report.comparisons.Rmd --ampliconName=dpy-10 --comparisonsFile=/home/edanner/workspace/pigx_crispr/sample_data/comparisons.tsv --indelsFolder=/home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10 --workdir=/home/edanner/workspace/pigx_crispr/sample_data/output/reports/comparisons --prefix=dpy-10 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10.report.comparisons.log 2>&1 ' returned non-zero exit status 1.
+  File "/home/edanner/workspace/pigx_crispr/pigx_crispr.py", line 222, in __rule_report_comparisons
+  File "/home/edanner/anaconda3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    Error in rule report:
+        jobid: 12
+        output: /home/edanner/workspace/pigx_crispr/sample_data/output/reports/lin-41.report.html
+        log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41.report.log
+
+RuleException:
+CalledProcessError in line 203 of /home/edanner/workspace/pigx_crispr/pigx_crispr.py:
+Command ' set -euo pipefail;  /home/edanner/anaconda3/bin/Rscript /home/edanner/workspace/pigx_crispr/src/runReport.R  --reportFile=/home/edanner/workspace/pigx_crispr/src/report.Rmd --ampliconFastaFile=/home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_lin-41.fa --ampliconName=lin-41 --cutSitesFile=/home/edanner/workspace/pigx_crispr/sample_data/cutsites/sgRNA_cutsites_lin-41.txt --sampleSheetFile=/home/edanner/workspace/pigx_crispr/sample_data/sample_sheet.csv --indelsFolder=/home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41 --workdir=/home/edanner/workspace/pigx_crispr/sample_data/output/reports --prefix=lin-41 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41.report.log 2>&1 ' returned non-zero exit status 1.
+  File "/home/edanner/workspace/pigx_crispr/pigx_crispr.py", line 203, in __rule_report
+  File "/home/edanner/anaconda3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+    Error in rule report:
+        jobid: 9
+        output: /home/edanner/workspace/pigx_crispr/sample_data/output/reports/dpy-10.report.html
+        log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10.report.log
+
+RuleException:
+CalledProcessError in line 203 of /home/edanner/workspace/pigx_crispr/pigx_crispr.py:
+Command ' set -euo pipefail;  /home/edanner/anaconda3/bin/Rscript /home/edanner/workspace/pigx_crispr/src/runReport.R  --reportFile=/home/edanner/workspace/pigx_crispr/src/report.Rmd --ampliconFastaFile=/home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_dpy-10.fa --ampliconName=dpy-10 --cutSitesFile=/home/edanner/workspace/pigx_crispr/sample_data/cutsites/sgRNA_cutsites_dpy-10.txt --sampleSheetFile=/home/edanner/workspace/pigx_crispr/sample_data/sample_sheet.csv --indelsFolder=/home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10 --workdir=/home/edanner/workspace/pigx_crispr/sample_data/output/reports --prefix=dpy-10 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10.report.log 2>&1 ' returned non-zero exit status 1.
+  File "/home/edanner/workspace/pigx_crispr/pigx_crispr.py", line 203, in __rule_report
+  File "/home/edanner/anaconda3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/edanner/workspace/pigx_crispr/.snakemake/log/2018-06-20T153405.377483.snakemake.log

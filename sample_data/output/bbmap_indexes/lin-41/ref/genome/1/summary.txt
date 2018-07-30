@@ -1,0 +1,13 @@
+#Summary
+#Generated on	Mon Jun 18 19:42:19 CEST 2018
+#Version	5
+chroms	1
+bases	17943
+defined	1943
+undefined	16000
+contigs	1
+scaffolds	1
+interpad	300
+source	/home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_lin-41.fa
+bytes	2002
+last modified	1529065579000

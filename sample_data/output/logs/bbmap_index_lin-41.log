@@ -1,0 +1,21 @@
+java -Djava.library.path=/home/edanner/anaconda3/envs/pigx_crispr/opt/bbmap-37.17/jni/ -ea -Xmx7936m -cp /home/edanner/anaconda3/envs/pigx_crispr/opt/bbmap-37.17/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 ref=/home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_lin-41.fa path=/home/edanner/workspace/pigx_crispr/sample_data/output/bbmap_indexes/lin-41
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, ref=/home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_lin-41.fa, path=/home/edanner/workspace/pigx_crispr/sample_data/output/bbmap_indexes/lin-41]
+
+BBMap version 37.17
+No output file.
+Writing reference.
+Executing dna.FastaToChromArrays2 [/home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_lin-41.fa, 1, writeinthread=false, genscaffoldinfo=true, retain, waitforwriting=false, gz=true, maxlen=536670912, writechroms=true, minscaf=1, midpad=300, startpad=8000, stoppad=8000, nodisk=false]
+
+Set genScaffoldInfo=true
+Writing chunk 1
+Set genome to 1
+
+Loaded Reference:	0.012 seconds.
+Loading index for chunk 1-1, build 1
+No index available; generating from reference genome: /home/edanner/workspace/pigx_crispr/sample_data/output/bbmap_indexes/lin-41/ref/index/1/chr1_index_k13_c16_b1.block
+Indexing threads started for block 0-1
+Indexing threads finished for block 0-1
+Generated Index:	3.146 seconds.
+No reads to process; quitting.
+
+Total time:     	3.386 seconds.

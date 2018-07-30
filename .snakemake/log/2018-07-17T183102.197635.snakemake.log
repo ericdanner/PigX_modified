@@ -1,0 +1,97 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	2	bbmap_indexgenome
+	3	bbmap_map
+	3	fastqc
+	3	getIndelStats
+	1	multiqc
+	2	report
+	3	samtools_indexbam
+	3	samtools_sam2bam
+	3	samtools_stats
+	3	trimmomatic
+	27
+
+rule fastqc:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/reads/lin41RNA_pool1_S67_R1_001.fastq.gz
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/lin-41/lin41RNA_pool1.fastqc.done
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/lin41RNA_pool1.fastqc.log
+    jobid: 19
+    wildcards: amplicon=lin-41, sample=lin41RNA_pool1
+
+fastqc -o /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/lin-41 /home/edanner/workspace/pigx_crispr/sample_data/reads/lin41RNA_pool1_S67_R1_001.fastq.gz > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/lin41RNA_pool1.fastqc.log 2>&1; touch /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/lin-41/lin41RNA_pool1.fastqc.done
+
+rule fastqc:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/reads/phen_dpy-10_N2_16_S31_R1_001.fastq.gz
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10/phen_dpy-10_N2_16.fastqc.done
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/phen_dpy-10_N2_16.fastqc.log
+    jobid: 8
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_N2_16
+
+fastqc -o /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10 /home/edanner/workspace/pigx_crispr/sample_data/reads/phen_dpy-10_N2_16_S31_R1_001.fastq.gz > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/phen_dpy-10_N2_16.fastqc.log 2>&1; touch /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10/phen_dpy-10_N2_16.fastqc.done
+
+rule trimmomatic:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/reads/lin41RNA_pool1_S67_R1_001.fastq.gz
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/lin-41/lin41RNA_pool1.fastq.gz
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/trimmomatic.lin41RNA_pool1.log
+    jobid: 17
+    wildcards: amplicon=lin-41, sample=lin41RNA_pool1
+
+trimmomatic SE -threads 2 /home/edanner/workspace/pigx_crispr/sample_data/reads/lin41RNA_pool1_S67_R1_001.fastq.gz /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/lin-41/lin41RNA_pool1.fastq.gz        ILLUMINACLIP:/home/edanner/workspace/pigx_crispr/sample_data/adapters/TruSeq2-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/trimmomatic.lin41RNA_pool1.log 2>&1
+
+rule trimmomatic:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/reads/phen_dpy-10_N2_16_S31_R1_001.fastq.gz
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_N2_16.fastq.gz
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/trimmomatic.phen_dpy-10_N2_16.log
+    jobid: 13
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_N2_16
+
+trimmomatic SE -threads 2 /home/edanner/workspace/pigx_crispr/sample_data/reads/phen_dpy-10_N2_16_S31_R1_001.fastq.gz /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_N2_16.fastq.gz        ILLUMINACLIP:/home/edanner/workspace/pigx_crispr/sample_data/adapters/TruSeq2-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/trimmomatic.phen_dpy-10_N2_16.log 2>&1
+    Error in rule trimmomatic:
+    Error in rule fastqc:
+        jobid: 17
+    Error in rule fastqc:
+        jobid: 19
+        output: /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/lin-41/lin41RNA_pool1.fastq.gz
+    Error in rule trimmomatic:
+        jobid: 8
+        output: /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/lin-41/lin41RNA_pool1.fastqc.done
+        log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/trimmomatic.lin41RNA_pool1.log
+        jobid: 13
+        output: /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10/phen_dpy-10_N2_16.fastqc.done
+        log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/lin41RNA_pool1.fastqc.log
+
+        output: /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_N2_16.fastq.gz
+        log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/phen_dpy-10_N2_16.fastqc.log
+
+        log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/trimmomatic.phen_dpy-10_N2_16.log
+
+
+RuleException:
+CalledProcessError in line 107 of /home/edanner/workspace/pigx_crispr/pigx_crispr.py:
+Command ' set -euo pipefail;  fastqc -o /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/lin-41 /home/edanner/workspace/pigx_crispr/sample_data/reads/lin41RNA_pool1_S67_R1_001.fastq.gz > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/lin41RNA_pool1.fastqc.log 2>&1; touch /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/lin-41/lin41RNA_pool1.fastqc.done ' returned non-zero exit status 127.
+  File "/home/edanner/workspace/pigx_crispr/pigx_crispr.py", line 107, in __rule_fastqc
+  File "/home/edanner/anaconda3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+RuleException:
+CalledProcessError in line 107 of /home/edanner/workspace/pigx_crispr/pigx_crispr.py:
+Command ' set -euo pipefail;  fastqc -o /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10 /home/edanner/workspace/pigx_crispr/sample_data/reads/phen_dpy-10_N2_16_S31_R1_001.fastq.gz > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/phen_dpy-10_N2_16.fastqc.log 2>&1; touch /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10/phen_dpy-10_N2_16.fastqc.done ' returned non-zero exit status 127.
+  File "/home/edanner/workspace/pigx_crispr/pigx_crispr.py", line 107, in __rule_fastqc
+  File "/home/edanner/anaconda3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+RuleException:
+CalledProcessError in line 113 of /home/edanner/workspace/pigx_crispr/pigx_crispr.py:
+Command ' set -euo pipefail;  trimmomatic SE -threads 2 /home/edanner/workspace/pigx_crispr/sample_data/reads/phen_dpy-10_N2_16_S31_R1_001.fastq.gz /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_N2_16.fastq.gz        ILLUMINACLIP:/home/edanner/workspace/pigx_crispr/sample_data/adapters/TruSeq2-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/trimmomatic.phen_dpy-10_N2_16.log 2>&1 ' returned non-zero exit status 127.
+  File "/home/edanner/workspace/pigx_crispr/pigx_crispr.py", line 113, in __rule_trimmomatic
+  File "/home/edanner/anaconda3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+RuleException:
+CalledProcessError in line 113 of /home/edanner/workspace/pigx_crispr/pigx_crispr.py:
+Command ' set -euo pipefail;  trimmomatic SE -threads 2 /home/edanner/workspace/pigx_crispr/sample_data/reads/lin41RNA_pool1_S67_R1_001.fastq.gz /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/lin-41/lin41RNA_pool1.fastq.gz        ILLUMINACLIP:/home/edanner/workspace/pigx_crispr/sample_data/adapters/TruSeq2-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/trimmomatic.lin41RNA_pool1.log 2>&1 ' returned non-zero exit status 127.
+  File "/home/edanner/workspace/pigx_crispr/pigx_crispr.py", line 113, in __rule_trimmomatic
+  File "/home/edanner/anaconda3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/edanner/workspace/pigx_crispr/.snakemake/log/2018-07-17T183102.197635.snakemake.log

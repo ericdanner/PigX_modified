@@ -4,14 +4,14 @@ additional_args=$1
 
 echo "ARGS: ${additional_args}"
 
-SRCDIR="/data/local/buyar/collaborations/jonathan/pipeline/pigx_crispr"
+SRCDIR="/home/edanner/workspace/pigx_crispr"
 
 #echo "Removing previously generated output folder"
 #rm -rf ${SRCDIR}/sample_data/output
 
 settings="${SRCDIR}/sample_data/settings.yaml"
 snakefile="${SRCDIR}/pigx_crispr.py"
-snakemake='/home/buyar/.guix-profile/bin/snakemake'
+snakemake='/home/edanner/anaconda3/bin/snakemake'   #location of snakemake
 
 
 ${snakemake} ${additional_args} -p --configfile ${settings}  --snakefile ${snakefile} -j 4 
@@ -23,3 +23,6 @@ ${snakemake} --configfile ${settings} --snakefile ${snakefile} --dag | dot -Tpdf
 
 #${snakemake} --forceall -p --configfile ${settings}  --snakefile ${snakefile} -j 4 --dryrun
 #	${snakemake} --forceall -p --configfile ${settings}  --snakefile ${snakefile} -j 4
+
+
+#

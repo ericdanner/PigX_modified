@@ -117,7 +117,7 @@ rule bbmap_indexgenome:
     input: lambda wildcards: get_amplicon_file(wildcards, 'fasta')
     output: os.path.join(BBMAP_INDEX_DIR, "{amplicon}")
     log: os.path.join(LOG_DIR, 'bbmap_index_{amplicon}.log')
-    shell: "bbmap.sh ref={input} path={output} > {log} 2>&1"
+    shell: "bbmap.sh ref={input} path={output} > {log} 2>&1" #mabye need to change this to the bash file for pacbio.sh or whatever its called
 
 rule bbmap_map:
     input: 
@@ -127,7 +127,7 @@ rule bbmap_map:
         os.path.join(MAPPED_READS_DIR, "{amplicon}", "{sample}.sam")
     log: os.path.join(LOG_DIR, "{amplicon}", "bbmap_{sample}.log")
     shell:
-        "bbmap.sh path={input.ref} in={input.reads} outm={output} t=2 sam=1.3 > {log} 2>&1"
+        "bbmap.sh path={input.ref} in={input.reads} outm={output} t=2 sam=1.3 > {log} 2>&1"  #change the bbmap tools to the long read bash file.
 
 rule samtools_sam2bam:
     input: os.path.join(MAPPED_READS_DIR, "{amplicon}", "{sample}.sam")

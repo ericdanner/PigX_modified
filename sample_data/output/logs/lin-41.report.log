@@ -1,0 +1,13 @@
+arguments: --reportFile=/home/edanner/workspace/pigx_crispr/src/report.Rmd --ampliconFastaFile=/home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_lin-41.fa --ampliconName=lin-41 --cutSitesFile=/home/edanner/workspace/pigx_crispr/sample_data/cutsites/sgRNA_cutsites_lin-41.txt --sampleSheetFile=/home/edanner/workspace/pigx_crispr/sample_data/sample_sheet.csv --indelsFolder=/home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41 --workdir=/home/edanner/workspace/pigx_crispr/sample_data/output/reports --prefix=lin-41 
+setting working directory to  /home/edanner/workspace/pigx_crispr/sample_data/output/reports 
+Warning messages:
+1: In plotly::plot_ly(data = dts, x = ~sgRNA, y = ~indelEfficiency,  :
+  The group argument has been deprecated. Use `group_by()` or split instead.
+See `help('plotly_data')` for examples
+2: In RColorBrewer::brewer.pal(N, "Set2") :
+  minimal value for n is 3, returning requested palette with 3 different levels
+
+3: In file.rename(from, to) :
+  cannot rename file '/home/edanner/workspace/pigx_crispr/sample_data/output/reports/lin-41.report_files/figure-html' to '/home/edanner/workspace/pigx_crispr/sample_data/output/reports/lin-41//home/edanner/workspace/pigx_crispr/sample_data/output/reports/lin-41.report_files/figure-html', reason 'No such file or directory'
+4: In file.rename(from, to) :
+  cannot rename file '/home/edanner/workspace/pigx_crispr/sample_data/output/reports/lin-41//home/edanner/workspace/pigx_crispr/sample_data/output/reports/lin-41.report_files/figure-html' to '/home/edanner/workspace/pigx_crispr/sample_data/output/reports/lin-41.report_files/figure-html', reason 'No such file or directory'

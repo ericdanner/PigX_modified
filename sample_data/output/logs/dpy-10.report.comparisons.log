@@ -1,0 +1,6 @@
+arguments: --reportFile=/home/edanner/workspace/pigx_crispr/src/report.comparisons.Rmd --ampliconName=dpy-10 --comparisonsFile=/home/edanner/workspace/pigx_crispr/sample_data/comparisons.tsv --indelsFolder=/home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10 --workdir=/home/edanner/workspace/pigx_crispr/sample_data/output/reports/comparisons --prefix=dpy-10 
+setting working directory to  /home/edanner/workspace/pigx_crispr/sample_data/output/reports/comparisons 
+Quitting from lines 148-188 (report.comparisons.Rmd) 
+Error in loadNamespace(name) : there is no package called 'fastseg'
+Calls: runReport ... tryCatch -> tryCatchList -> tryCatchOne -> <Anonymous>
+Execution halted

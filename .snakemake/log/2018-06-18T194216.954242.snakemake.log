@@ -1,0 +1,293 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	2	bbmap_indexgenome
+	3	bbmap_map
+	3	fastqc
+	3	getIndelStats
+	1	multiqc
+	2	report
+	1	report_comparisons
+	3	samtools_indexbam
+	3	samtools_sam2bam
+	3	samtools_stats
+	3	trimmomatic
+	28
+
+rule trimmomatic:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/reads/lin41RNA_pool1_S67_R1_001.fastq.gz
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/lin-41/lin41RNA_pool1.fastq.gz
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/trimmomatic.lin41RNA_pool1.log
+    jobid: 6
+    wildcards: amplicon=lin-41, sample=lin41RNA_pool1
+
+trimmomatic SE -threads 2 /home/edanner/workspace/pigx_crispr/sample_data/reads/lin41RNA_pool1_S67_R1_001.fastq.gz /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/lin-41/lin41RNA_pool1.fastq.gz        ILLUMINACLIP:/home/edanner/workspace/pigx_crispr/sample_data/adapters/TruSeq2-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/trimmomatic.lin41RNA_pool1.log 2>&1
+
+rule fastqc:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/reads/phen_dpy-10_N2_16_S31_R1_001.fastq.gz
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10/phen_dpy-10_N2_16.fastqc.done
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/phen_dpy-10_N2_16.fastqc.log
+    jobid: 22
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_N2_16
+
+fastqc -o /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10 /home/edanner/workspace/pigx_crispr/sample_data/reads/phen_dpy-10_N2_16_S31_R1_001.fastq.gz > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/phen_dpy-10_N2_16.fastqc.log 2>&1; touch /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10/phen_dpy-10_N2_16.fastqc.done
+
+rule trimmomatic:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/reads/phen_dpy-10_N2_16_S31_R1_001.fastq.gz
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_N2_16.fastq.gz
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/trimmomatic.phen_dpy-10_N2_16.log
+    jobid: 13
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_N2_16
+
+trimmomatic SE -threads 2 /home/edanner/workspace/pigx_crispr/sample_data/reads/phen_dpy-10_N2_16_S31_R1_001.fastq.gz /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_N2_16.fastq.gz        ILLUMINACLIP:/home/edanner/workspace/pigx_crispr/sample_data/adapters/TruSeq2-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/trimmomatic.phen_dpy-10_N2_16.log 2>&1
+
+rule fastqc:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/reads/lin41RNA_pool1_S67_R1_001.fastq.gz
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/lin-41/lin41RNA_pool1.fastqc.done
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/lin41RNA_pool1.fastqc.log
+    jobid: 9
+    wildcards: amplicon=lin-41, sample=lin41RNA_pool1
+
+fastqc -o /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/lin-41 /home/edanner/workspace/pigx_crispr/sample_data/reads/lin41RNA_pool1_S67_R1_001.fastq.gz > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/lin41RNA_pool1.fastqc.log 2>&1; touch /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/lin-41/lin41RNA_pool1.fastqc.done
+Finished job 13.
+1 of 28 steps (4%) done
+
+rule trimmomatic:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/reads/phen_dpy-10_sg1sg2_16_S20_R1_001.fastq.gz
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_sg1sg2_16.fastq.gz
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/trimmomatic.phen_dpy-10_sg1sg2_16.log
+    jobid: 14
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_sg1sg2_16
+
+trimmomatic SE -threads 2 /home/edanner/workspace/pigx_crispr/sample_data/reads/phen_dpy-10_sg1sg2_16_S20_R1_001.fastq.gz /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_sg1sg2_16.fastq.gz        ILLUMINACLIP:/home/edanner/workspace/pigx_crispr/sample_data/adapters/TruSeq2-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/trimmomatic.phen_dpy-10_sg1sg2_16.log 2>&1
+Finished job 6.
+2 of 28 steps (7%) done
+
+rule fastqc:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/reads/phen_dpy-10_sg1sg2_16_S20_R1_001.fastq.gz
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10/phen_dpy-10_sg1sg2_16.fastqc.done
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/phen_dpy-10_sg1sg2_16.fastqc.log
+    jobid: 16
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_sg1sg2_16
+
+fastqc -o /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10 /home/edanner/workspace/pigx_crispr/sample_data/reads/phen_dpy-10_sg1sg2_16_S20_R1_001.fastq.gz > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/phen_dpy-10_sg1sg2_16.fastqc.log 2>&1; touch /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10/phen_dpy-10_sg1sg2_16.fastqc.done
+Finished job 14.
+3 of 28 steps (11%) done
+
+rule bbmap_indexgenome:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_lin-41.fa
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/bbmap_indexes/lin-41
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/bbmap_index_lin-41.log
+    jobid: 12
+    wildcards: amplicon=lin-41
+
+bbmap.sh ref=/home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_lin-41.fa path=/home/edanner/workspace/pigx_crispr/sample_data/output/bbmap_indexes/lin-41 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/bbmap_index_lin-41.log 2>&1
+Finished job 12.
+4 of 28 steps (14%) done
+
+rule bbmap_map:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/lin-41/lin41RNA_pool1.fastq.gz, /home/edanner/workspace/pigx_crispr/sample_data/output/bbmap_indexes/lin-41
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.sam
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/bbmap_lin41RNA_pool1.log
+    jobid: 26
+    wildcards: amplicon=lin-41, sample=lin41RNA_pool1
+
+bbmap.sh path=/home/edanner/workspace/pigx_crispr/sample_data/output/bbmap_indexes/lin-41 in=/home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/lin-41/lin41RNA_pool1.fastq.gz outm=/home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.sam t=2 sam=1.3 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/bbmap_lin41RNA_pool1.log 2>&1
+Finished job 9.
+5 of 28 steps (18%) done
+
+rule bbmap_indexgenome:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_dpy-10.fa
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/bbmap_indexes/dpy-10
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/bbmap_index_dpy-10.log
+    jobid: 19
+    wildcards: amplicon=dpy-10
+
+bbmap.sh ref=/home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_dpy-10.fa path=/home/edanner/workspace/pigx_crispr/sample_data/output/bbmap_indexes/dpy-10 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/bbmap_index_dpy-10.log 2>&1
+Finished job 16.
+6 of 28 steps (21%) done
+Finished job 22.
+7 of 28 steps (25%) done
+Finished job 19.
+8 of 28 steps (29%) done
+
+rule bbmap_map:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_sg1sg2_16.fastq.gz, /home/edanner/workspace/pigx_crispr/sample_data/output/bbmap_indexes/dpy-10
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.sam
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/bbmap_phen_dpy-10_sg1sg2_16.log
+    jobid: 27
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_sg1sg2_16
+
+bbmap.sh path=/home/edanner/workspace/pigx_crispr/sample_data/output/bbmap_indexes/dpy-10 in=/home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_sg1sg2_16.fastq.gz outm=/home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.sam t=2 sam=1.3 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/bbmap_phen_dpy-10_sg1sg2_16.log 2>&1
+
+rule bbmap_map:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_N2_16.fastq.gz, /home/edanner/workspace/pigx_crispr/sample_data/output/bbmap_indexes/dpy-10
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.sam
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/bbmap_phen_dpy-10_N2_16.log
+    jobid: 25
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_N2_16
+
+bbmap.sh path=/home/edanner/workspace/pigx_crispr/sample_data/output/bbmap_indexes/dpy-10 in=/home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_N2_16.fastq.gz outm=/home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.sam t=2 sam=1.3 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/bbmap_phen_dpy-10_N2_16.log 2>&1
+Finished job 26.
+9 of 28 steps (32%) done
+
+rule samtools_sam2bam:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.sam
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.bam
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/sam2bam_lin41RNA_pool1.log
+    jobid: 21
+    wildcards: amplicon=lin-41, sample=lin41RNA_pool1
+
+samtools view -bh /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.sam | samtools sort -o /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.bam > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/sam2bam_lin41RNA_pool1.log 2>&1
+Finished job 21.
+10 of 28 steps (36%) done
+
+rule samtools_indexbam:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.bam
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.bam.bai
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/samtools_index_lin41RNA_pool1.log
+    jobid: 20
+    wildcards: amplicon=lin-41, sample=lin41RNA_pool1
+
+samtools index /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.bam > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/samtools_index_lin41RNA_pool1.log 2>&1
+
+rule samtools_stats:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.bam, /home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_lin-41.fa
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.samtools.stats.txt
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/samtools_stats.lin41RNA_pool1.log
+    jobid: 3
+    wildcards: amplicon=lin-41, sample=lin41RNA_pool1
+
+samtools stats --reference /home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_lin-41.fa /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.bam > /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.samtools.stats.txt 2> /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/samtools_stats.lin41RNA_pool1.log
+Finished job 3.
+11 of 28 steps (39%) done
+Finished job 20.
+12 of 28 steps (43%) done
+
+rule getIndelStats:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.bam.bai, /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.bam, /home/edanner/workspace/pigx_crispr/sample_data/cutsites/sgRNA_cutsites_lin-41.txt
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.indelScores.bedgraph, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.deletionScores.bedgraph, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.insertionScores.bedgraph, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.coverageStats.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.indel_stats_at_cutsites.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.deletions.bed, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.insertions.bed, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.indels.unfiltered.tsv
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/getIndelStats_lin41RNA_pool1.log
+    jobid: 4
+    wildcards: amplicon=lin-41, sample=lin41RNA_pool1
+
+/home/edanner/anaconda3/bin/Rscript /home/edanner/workspace/pigx_crispr/src/getIndelStats.R /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.bam lin41RNA_pool1 /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41 /home/edanner/workspace/pigx_crispr/sample_data/cutsites/sgRNA_cutsites_lin-41.txt lin-41_UTR_sg1:lin-41_UTR_sg4:lin-41_UTR_sg10:lin-41_UTR_sg16:lin-41_UTR_sg22 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/getIndelStats_lin41RNA_pool1.log 2>&1
+Finished job 25.
+13 of 28 steps (46%) done
+
+rule samtools_sam2bam:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.sam
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.bam
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/sam2bam_phen_dpy-10_N2_16.log
+    jobid: 15
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_N2_16
+
+samtools view -bh /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.sam | samtools sort -o /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.bam > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/sam2bam_phen_dpy-10_N2_16.log 2>&1
+Finished job 15.
+14 of 28 steps (50%) done
+
+rule samtools_stats:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.bam, /home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_dpy-10.fa
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.samtools.stats.txt
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/samtools_stats.phen_dpy-10_N2_16.log
+    jobid: 8
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_N2_16
+
+samtools stats --reference /home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_dpy-10.fa /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.bam > /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.samtools.stats.txt 2> /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/samtools_stats.phen_dpy-10_N2_16.log
+
+rule samtools_indexbam:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.bam
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.bam.bai
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/samtools_index_phen_dpy-10_N2_16.log
+    jobid: 18
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_N2_16
+
+samtools index /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.bam > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/samtools_index_phen_dpy-10_N2_16.log 2>&1
+Finished job 8.
+15 of 28 steps (54%) done
+Finished job 27.
+16 of 28 steps (57%) done
+
+rule samtools_sam2bam:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.sam
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.bam
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/sam2bam_phen_dpy-10_sg1sg2_16.log
+    jobid: 23
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_sg1sg2_16
+
+samtools view -bh /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.sam | samtools sort -o /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.bam > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/sam2bam_phen_dpy-10_sg1sg2_16.log 2>&1
+Finished job 18.
+17 of 28 steps (61%) done
+
+rule getIndelStats:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.bam.bai, /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.bam, /home/edanner/workspace/pigx_crispr/sample_data/cutsites/sgRNA_cutsites_dpy-10.txt
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.indelScores.bedgraph, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.deletionScores.bedgraph, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.insertionScores.bedgraph, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.coverageStats.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.indel_stats_at_cutsites.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.deletions.bed, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.insertions.bed, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.indels.unfiltered.tsv
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/getIndelStats_phen_dpy-10_N2_16.log
+    jobid: 2
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_N2_16
+
+/home/edanner/anaconda3/bin/Rscript /home/edanner/workspace/pigx_crispr/src/getIndelStats.R /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.bam phen_dpy-10_N2_16 /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10 /home/edanner/workspace/pigx_crispr/sample_data/cutsites/sgRNA_cutsites_dpy-10.txt '' > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/getIndelStats_phen_dpy-10_N2_16.log 2>&1
+Finished job 23.
+18 of 28 steps (64%) done
+
+rule samtools_indexbam:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.bam
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.bam.bai
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/samtools_index_phen_dpy-10_sg1sg2_16.log
+    jobid: 24
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_sg1sg2_16
+
+samtools index /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.bam > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/samtools_index_phen_dpy-10_sg1sg2_16.log 2>&1
+
+rule samtools_stats:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.bam, /home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_dpy-10.fa
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.samtools.stats.txt
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/samtools_stats.phen_dpy-10_sg1sg2_16.log
+    jobid: 11
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_sg1sg2_16
+
+samtools stats --reference /home/edanner/workspace/pigx_crispr/sample_data/amplicons/amplicon_dpy-10.fa /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.bam > /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.samtools.stats.txt 2> /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/samtools_stats.phen_dpy-10_sg1sg2_16.log
+Finished job 11.
+19 of 28 steps (68%) done
+
+rule multiqc:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/lin-41/lin41RNA_pool1.fastqc.done, /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10/phen_dpy-10_N2_16.fastqc.done, /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10/phen_dpy-10_sg1sg2_16.fastqc.done, /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/lin-41/lin41RNA_pool1.fastq.gz, /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_N2_16.fastq.gz, /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_sg1sg2_16.fastq.gz, /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.samtools.stats.txt, /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.samtools.stats.txt, /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.samtools.stats.txt
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/multiqc/multiqc_report.html
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/multiqc.log
+    jobid: 7
+
+multiqc -o /home/edanner/workspace/pigx_crispr/sample_data/output/multiqc /home/edanner/workspace/pigx_crispr/sample_data/output > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/multiqc.log 2>&1
+    Error in rule multiqc:
+        jobid: 7
+Finished job 24.
+        output: /home/edanner/workspace/pigx_crispr/sample_data/output/multiqc/multiqc_report.html
+        log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/multiqc.log
+
+20 of 28 steps (71%) done
+
+rule getIndelStats:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.bam.bai, /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.bam, /home/edanner/workspace/pigx_crispr/sample_data/cutsites/sgRNA_cutsites_dpy-10.txt
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.indelScores.bedgraph, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.deletionScores.bedgraph, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.insertionScores.bedgraph, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.coverageStats.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.indel_stats_at_cutsites.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.deletions.bed, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.insertions.bed, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_sg1sg2_16.indels.unfiltered.tsv
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/getIndelStats_phen_dpy-10_sg1sg2_16.log
+    jobid: 1
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_sg1sg2_16
+
+/home/edanner/anaconda3/bin/Rscript /home/edanner/workspace/pigx_crispr/src/getIndelStats.R /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.bam phen_dpy-10_sg1sg2_16 /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10 /home/edanner/workspace/pigx_crispr/sample_data/cutsites/sgRNA_cutsites_dpy-10.txt dpy-10_UTR_sg1:dpy-10_UTR_sg2 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/getIndelStats_phen_dpy-10_sg1sg2_16.log 2>&1
+RuleException:
+CalledProcessError in line 164 of /home/edanner/workspace/pigx_crispr/pigx_crispr.py:
+Command ' set -euo pipefail;  multiqc -o /home/edanner/workspace/pigx_crispr/sample_data/output/multiqc /home/edanner/workspace/pigx_crispr/sample_data/output > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/multiqc.log 2>&1 ' returned non-zero exit status 127.
+  File "/home/edanner/workspace/pigx_crispr/pigx_crispr.py", line 164, in __rule_multiqc
+  File "/home/edanner/anaconda3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Finished job 4.
+21 of 28 steps (75%) done
+Finished job 1.
+22 of 28 steps (79%) done
+Finished job 2.
+23 of 28 steps (82%) done
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/edanner/workspace/pigx_crispr/.snakemake/log/2018-06-18T194216.954242.snakemake.log

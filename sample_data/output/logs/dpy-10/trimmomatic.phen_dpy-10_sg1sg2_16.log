@@ -1,0 +1,9 @@
+TrimmomaticSE: Started with arguments:
+ -threads 2 /home/edanner/workspace/pigx_crispr/sample_data/reads/phen_dpy-10_sg1sg2_16_S20_R1_001.fastq.gz /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_sg1sg2_16.fastq.gz ILLUMINACLIP:/home/edanner/workspace/pigx_crispr/sample_data/adapters/TruSeq2-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+ILLUMINACLIP: Using 0 prefix pairs, 3 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 2500 Surviving: 2448 (97.92%) Dropped: 52 (2.08%)
+TrimmomaticSE: Completed successfully

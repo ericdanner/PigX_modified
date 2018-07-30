@@ -7,14 +7,20 @@ library(ggplot2)
 #also, print out some diagnostic plots
 args = commandArgs(trailingOnly=TRUE)
 
-bamFile <- args[1]
-sampleName <- args[2]
-outDir <- args[3]
-cutSitesFile <- args[4] #path to sgRNA cutting sites for the target genome.
-sgRNA_list <- args[5] # column (:) separated list of sgRNA ids (must match ids in cutSitesFile)
+bamFile <- "/home/edanner/workspace/pigx_crispr/myData/mCherry/reads/alignHIROSmCherry.sorted.bam" #args[1]
+sampleName <- "mCherry" #args[2]
+outDir <- "/home/edanner/workspace/pigx_crispr/myData/mCherry/indelStats" #args[3]
+cutSitesFile <- "/home/edanner/workspace/pigx_crispr/myData/mCherry/cutsites/sgRNA_cutsites.txt" #args[4] #path to sgRNA cutting sites for the target genome.
+sgRNA_list <- "mCher1:mCher2" #args[5] # column (:) separated list of sgRNA ids (must match ids in cutSitesFile)
                       # that were used (or desired to be profiles) for the given sample.
 
-cat("Running getIndelStats with arguments:",args,"\n")
+# the command below runs getIndelStats.R but I need to run the Rscript function from the anaconda library and not from the conda enviornment R
+#/home/edanner/anaconda3/bin/Rscript getIndelStats.R path.bam mysample ./output path.cutsites.txt lin-41_UTR_sg15:lin-41_UTR_sg16
+
+#/home/edanner/anaconda3/bin/Rscript getIndelStats.R /home/edanner/workspace/pigx_crispr/snakeBFP/reads/alignBFP.bam BFPtest ./output /home/edanner/workspace/pigx_crispr/snakeBFP/cutsites/sgRNA_cutsites.txt bfp1:bfp2
+
+
+cat("Running getIndelStats with arguments:",args,"\n")  #this just prints out in terminal what the inputs are
 #print bedgraph file of deletion ratios per base
 
 
@@ -31,7 +37,7 @@ printBedGraphFile <- function(filepath,
   #convert to zero-based index
   scores$bp <- as.numeric(scores$bp) - 1
   
-  #bedgraph file
+  #bedgraph file  
   write.table(x = scores, file = filepath, append = T,
               sep = '\t', quote = F, row.names = F, col.names = F)
 }
@@ -45,7 +51,7 @@ printCoverageStats <- function(bamFile, sampleName, outDir = getwd()) {
   names(indels) <- mcols(aln)$qname
   
   indels <- stack(indels)
-  end(indels[which(names(indels) == 'I')]) <- start(indels[which(names(indels) == 'I')]) + 1
+  end(indels[which(names(indels) == 'I')]) <- start(indels[which(names(indels) == 'I')]) 
   seqinfo(indels) <- seqinfo(aln)
   
   del <- indels[which(names(indels) == 'D')]
@@ -56,7 +62,7 @@ printCoverageStats <- function(bamFile, sampleName, outDir = getwd()) {
   delCoverage <- GenomicAlignments::coverage(del)
   #in case del coverage deosn't cover the whole alignment 
   #fill in the remaining bases with 0 values
-  delCoverage <- c(delCoverage, rep(0, length(alnCoverage) - length(delCoverage)))
+  delCoverage <- c(delCoverage, rep(0, length(alnCoverage) - length(delCoverage))) #have a NaN input
 
   insCoverage <- GenomicAlignments::coverage(ins)
   #fill in the remaining bases with 0 values
@@ -64,7 +70,7 @@ printCoverageStats <- function(bamFile, sampleName, outDir = getwd()) {
   
   indelCoverage <- GenomicAlignments::coverage(indels)
   #fill in the remaining bases with 0 values
-  indelCoverage <- c(indelCoverage, rep(0, length(alnCoverage) - length(indelCoverage)))
+  indelCoverage <- c(indelCoverage, rep(0, length(alnCoverage) - length(indelCoverage))) #i silenced these
   
 
   df <- data.frame('seqname' = levels(seqnames(aln))[1], 

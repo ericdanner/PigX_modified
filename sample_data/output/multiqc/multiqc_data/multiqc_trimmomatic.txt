@@ -1,0 +1,4 @@
+Sample	surviving_pct	surviving	dropped	input_reads	dropped_pct
+lin41RNA_pool1_S67_R1_001	98.16	2454.0	46.0	2500.0	1.84
+phen_dpy-10_N2_16_S31_R1_001	99.0	2475.0	25.0	2500.0	1.0
+phen_dpy-10_sg1sg2_16_S20_R1_001	97.92	2448.0	52.0	2500.0	2.08

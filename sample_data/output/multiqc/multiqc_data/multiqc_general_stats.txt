@@ -1,0 +1,7 @@
+Sample	Samtools Stats_raw_total_sequences	Samtools Stats_non_primary_alignments	Samtools Stats_reads_mapped_percent	Samtools Stats_error_rate	Samtools Stats_reads_mapped	Trimmomatic_dropped_pct	FastQC_total_sequences	FastQC_percent_gc	FastQC_avg_sequence_length	FastQC_percent_fails	FastQC_percent_duplicates
+lin41RNA_pool1	2448.0	0.0	100.0	0.003623894	2448.0						
+lin41RNA_pool1_S67_R1_001						1.84	2500.0	41.0	141.218	8.333333333333332	47.48
+phen_dpy-10_N2_16	2474.0	0.0	100.0	0.004612916	2474.0						
+phen_dpy-10_N2_16_S31_R1_001						1.0	2500.0	43.0	139.7848	33.33333333333333	53.48
+phen_dpy-10_sg1sg2_16	2444.0	0.0	100.0	0.005216237	2444.0						
+phen_dpy-10_sg1sg2_16_S20_R1_001						2.08	2500.0	44.0	137.6336	33.33333333333333	51.32

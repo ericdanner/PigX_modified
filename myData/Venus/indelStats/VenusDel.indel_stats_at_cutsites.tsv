@@ -1,0 +1,2 @@
+sample	sgRNA	cutStart	cutEnd	indel	del	ins	coverage	indelEfficiency
+VenusDel	venus1	103	104	4747	2641	2106	5753	82.51

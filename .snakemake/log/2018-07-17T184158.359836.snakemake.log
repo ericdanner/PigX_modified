@@ -1,0 +1,74 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 4
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	2	getIndelStats
+	1	multiqc
+	2	report
+	6
+
+rule getIndelStats:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.bam.bai, /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.bam, /home/edanner/workspace/pigx_crispr/sample_data/cutsites/sgRNA_cutsites_dpy-10.txt
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.indelScores.bedgraph, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.deletionScores.bedgraph, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.insertionScores.bedgraph, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.coverageStats.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.indel_stats_at_cutsites.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.deletions.bed, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.insertions.bed, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.indels.unfiltered.tsv
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/getIndelStats_phen_dpy-10_N2_16.log
+    jobid: 2
+    wildcards: amplicon=dpy-10, sample=phen_dpy-10_N2_16
+
+/home/edanner/anaconda3/bin/Rscript /home/edanner/workspace/pigx_crispr/src/getIndelStats.R /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.bam phen_dpy-10_N2_16 /home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10 /home/edanner/workspace/pigx_crispr/sample_data/cutsites/sgRNA_cutsites_dpy-10.txt '' > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/dpy-10/getIndelStats_phen_dpy-10_N2_16.log 2>&1
+
+rule multiqc:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/lin-41/lin41RNA_pool1.fastqc.done, /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10/phen_dpy-10_N2_16.fastqc.done, /home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10/phen_dpy-10_sg1sg2_16.fastqc.done, /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/lin-41/lin41RNA_pool1.fastq.gz, /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_N2_16.fastq.gz, /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_sg1sg2_16.fastq.gz, /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.samtools.stats.txt, /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.samtools.stats.txt, /home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.samtools.stats.txt
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/multiqc/multiqc_report.html
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/multiqc.log
+    jobid: 17
+
+multiqc -o /home/edanner/workspace/pigx_crispr/sample_data/output/multiqc /home/edanner/workspace/pigx_crispr/sample_data/output > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/multiqc.log 2>&1
+
+rule getIndelStats:
+    input: /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.bam.bai, /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.bam, /home/edanner/workspace/pigx_crispr/sample_data/cutsites/sgRNA_cutsites_lin-41.txt
+    output: /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.indelScores.bedgraph, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.deletionScores.bedgraph, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.insertionScores.bedgraph, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.coverageStats.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.indel_stats_at_cutsites.tsv, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.deletions.bed, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.insertions.bed, /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.indels.unfiltered.tsv
+    log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/getIndelStats_lin41RNA_pool1.log
+    jobid: 3
+    wildcards: amplicon=lin-41, sample=lin41RNA_pool1
+
+/home/edanner/anaconda3/bin/Rscript /home/edanner/workspace/pigx_crispr/src/getIndelStats.R /home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.bam lin41RNA_pool1 /home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41 /home/edanner/workspace/pigx_crispr/sample_data/cutsites/sgRNA_cutsites_lin-41.txt lin-41_UTR_sg1:lin-41_UTR_sg4:lin-41_UTR_sg10:lin-41_UTR_sg16:lin-41_UTR_sg22 > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/lin-41/getIndelStats_lin41RNA_pool1.log 2>&1
+    Error in rule multiqc:
+        jobid: 17
+        output: /home/edanner/workspace/pigx_crispr/sample_data/output/multiqc/multiqc_report.html
+        log: /home/edanner/workspace/pigx_crispr/sample_data/output/logs/multiqc.log
+
+RuleException:
+CalledProcessError in line 164 of /home/edanner/workspace/pigx_crispr/pigx_crispr.py:
+Command ' set -euo pipefail;  multiqc -o /home/edanner/workspace/pigx_crispr/sample_data/output/multiqc /home/edanner/workspace/pigx_crispr/sample_data/output > /home/edanner/workspace/pigx_crispr/sample_data/output/logs/multiqc.log 2>&1 ' returned non-zero exit status 1.
+  File "/home/edanner/workspace/pigx_crispr/pigx_crispr.py", line 164, in __rule_multiqc
+  File "/home/edanner/anaconda3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 166 of /home/edanner/workspace/pigx_crispr/pigx_crispr.py:
+Missing files after 5 seconds:
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.indelScores.bedgraph
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.deletionScores.bedgraph
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.insertionScores.bedgraph
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.coverageStats.tsv
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.indel_stats_at_cutsites.tsv
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.deletions.bed
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.insertions.bed
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/dpy-10/phen_dpy-10_N2_16.indels.unfiltered.tsv
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 166 of /home/edanner/workspace/pigx_crispr/pigx_crispr.py:
+Missing files after 5 seconds:
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.indelScores.bedgraph
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.deletionScores.bedgraph
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.insertionScores.bedgraph
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.coverageStats.tsv
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.indel_stats_at_cutsites.tsv
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.deletions.bed
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.insertions.bed
+/home/edanner/workspace/pigx_crispr/sample_data/output/indels/lin-41/lin41RNA_pool1.indels.unfiltered.tsv
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/edanner/workspace/pigx_crispr/.snakemake/log/2018-07-17T184158.359836.snakemake.log

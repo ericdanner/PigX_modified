@@ -1,0 +1,51 @@
+java -Djava.library.path=/home/edanner/anaconda3/envs/pigx_crispr/opt/bbmap-37.17/jni/ -ea -Xmx7324m -cp /home/edanner/anaconda3/envs/pigx_crispr/opt/bbmap-37.17/current/ align2.BBMap build=1 overwrite=true fastareadlen=500 path=/home/edanner/workspace/pigx_crispr/sample_data/output/bbmap_indexes/dpy-10 in=/home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_N2_16.fastq.gz outm=/home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.sam t=2 sam=1.3
+Executing align2.BBMap [build=1, overwrite=true, fastareadlen=500, path=/home/edanner/workspace/pigx_crispr/sample_data/output/bbmap_indexes/dpy-10, in=/home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/dpy-10/phen_dpy-10_N2_16.fastq.gz, outm=/home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.sam, t=2, sam=1.3]
+
+BBMap version 37.17
+Set threads to 2
+Retaining first best site only for ambiguous mappings.
+Set genome to 1
+
+Loaded Reference:	0.287 seconds.
+Loading index for chunk 1-1, build 1
+Generated Index:	0.962 seconds.
+Analyzed Index:   	4.598 seconds.
+Started output stream:	0.311 seconds.
+Cleared Memory:    	0.135 seconds.
+Processing reads in single-ended mode.
+Started read stream.
+Started 2 mapping threads.
+Detecting finished threads: 0, 1
+
+   ------------------   Results   ------------------   
+
+Genome:                	1
+Key Length:            	13
+Max Indel:             	16000
+Minimum Score Ratio:  	0.56
+Mapping Mode:         	normal
+Reads Used:           	2475	(334165 bases)
+
+Mapping:          	2.235 seconds.
+Reads/sec:       	1107.28
+kBases/sec:      	149.50
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 99.9596% 	     2474 	 99.9704% 	      334066
+unambiguous:     	 99.9596% 	     2474 	 99.9704% 	      334066
+ambiguous:       	  0.0000% 	        0 	  0.0000% 	           0
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	 73.9394% 	     1830 	 73.9883% 	      247243
+semiperfect site:	 73.9394% 	     1830 	 73.9883% 	      247243
+
+Match Rate:      	      NA 	       NA 	 99.5379% 	      332777
+Error Rate:      	 25.9394% 	      642 	  0.4600% 	        1538
+Sub Rate:        	 25.4141% 	      629 	  0.3808% 	        1273
+Del Rate:        	  0.8485% 	       21 	  0.0766% 	         256
+Ins Rate:        	  0.1212% 	        3 	  0.0027% 	           9
+N Rate:          	  0.1616% 	        4 	  0.0021% 	           7
+
+Total time:     	9.440 seconds.

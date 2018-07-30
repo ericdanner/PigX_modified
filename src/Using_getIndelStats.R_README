@@ -1,0 +1,16 @@
+
+To run the Rscript getIndelStats.R:
+  from terminal run it. But use the Conda R that has all the packages. Then you run the R script while in the folder containing the R script
+
+This is the example for BFP: (look into the getIndelStats.R code to see the reason for the ordering)
+#/home/edanner/anaconda3/bin/Rscript getIndelStats.R /home/edanner/workspace/pigx_crispr/myData/BFP/reads/alignBFP.sorted.bam BFP /home/edanner/workspace/pigx_crispr/myData/BFP/indelStats /home/edanner/workspace/pigx_crispr/myData/BFP/cutsites/sgRNA_cutsites.txt bfp1:bfp2
+
+mCherry:
+/home/edanner/anaconda3/bin/Rscript getIndelStats.R /home/edanner/workspace/pigx_crispr/myData/mCherry/reads/alignHIROSmCherry.sorted.bam mCherry /home/edanner/workspace/pigx_crispr/myData/mCherry/indelStats /home/edanner/workspace/pigx_crispr/myData/mCherry/cutsites/sgRNA_cutsites.txt mCher1:mCher2
+
+need to update the cutsites
+
+Veuns:
+/home/edanner/anaconda3/bin/Rscript getIndelStats.R /home/edanner/workspace/pigx_crispr/myData/Venus/reads/alignvenus.sorted.bam VenusDel /home/edanner/workspace/pigx_crispr/myData/Venus/indelStats /home/edanner/workspace/pigx_crispr/myData/Venus/cutsites/sgRNA_cutsites.txt venus1
+
+need to update the cutsites

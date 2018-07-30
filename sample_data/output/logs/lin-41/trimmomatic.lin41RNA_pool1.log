@@ -1,0 +1,9 @@
+TrimmomaticSE: Started with arguments:
+ -threads 2 /home/edanner/workspace/pigx_crispr/sample_data/reads/lin41RNA_pool1_S67_R1_001.fastq.gz /home/edanner/workspace/pigx_crispr/sample_data/output/trimmed_reads/lin-41/lin41RNA_pool1.fastq.gz ILLUMINACLIP:/home/edanner/workspace/pigx_crispr/sample_data/adapters/TruSeq2-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGGTTCAGCAGGAATGCCGAG'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCTCGTATGCCGTCTTCTGCTTG'
+ILLUMINACLIP: Using 0 prefix pairs, 3 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Reads: 2500 Surviving: 2454 (98.16%) Dropped: 46 (1.84%)
+TrimmomaticSE: Completed successfully

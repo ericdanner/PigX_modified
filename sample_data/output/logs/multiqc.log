@@ -1,0 +1,6 @@
+[WARNING]         multiqc : MultiQC Version v1.5
+ now available!
+[INFO   ]         multiqc : This is MultiQC v0.9
+[INFO   ]         multiqc : Template    : default
+[ERROR  ]         multiqc : Output directory 'sample_data/output/multiqc/multiqc_data' already exists.
+[INFO   ]         multiqc : Use -f or --force to overwrite existing reports

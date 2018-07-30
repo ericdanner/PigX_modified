@@ -1,0 +1,7 @@
+Module	Section	Sample Name	Source
+Samtools	stats	phen_dpy-10_sg1sg2_16	/home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_sg1sg2_16.samtools.stats.txt
+Samtools	stats	phen_dpy-10_N2_16	/home/edanner/workspace/pigx_crispr/sample_data/output/aln/dpy-10/phen_dpy-10_N2_16.samtools.stats.txt
+Samtools	stats	lin41RNA_pool1	/home/edanner/workspace/pigx_crispr/sample_data/output/aln/lin-41/lin41RNA_pool1.samtools.stats.txt
+FastQC	all_sections	phen_dpy-10_N2_16_S31_R1_001	/home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10/phen_dpy-10_N2_16_S31_R1_001_fastqc.zip
+FastQC	all_sections	lin41RNA_pool1_S67_R1_001	/home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/lin-41/lin41RNA_pool1_S67_R1_001_fastqc.zip
+FastQC	all_sections	phen_dpy-10_sg1sg2_16_S20_R1_001	/home/edanner/workspace/pigx_crispr/sample_data/output/fastqc/dpy-10/phen_dpy-10_sg1sg2_16_S20_R1_001_fastqc.zip

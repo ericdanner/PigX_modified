@@ -3,18 +3,18 @@
 graphviz=2.38.0
 python=3.5.1
 samtools=1.3.1
-snakemake=3.5.5
+snakemake=4.2.0
 pyyaml=3.11
 bbmap=37.17
 trimmomatic=0.36
 fastqc=0.11.5
-r-crosstalk
-r-data.table
-r-dt
-bioconductor-genomicranges
-bioconductor-genomicalignments
-r-ggplot2
-r-ggrepel
-r-knitr
-r-plotly
-bioconductor-rtracklayer
+#r-crosstalk
+#r-data.table
+#r-dt 						# i think this is acutally DT
+#bioconductor-genomicranges     #GenomicRanges
+#bioconductor-genomicalignments
+#r-ggplot2
+#r-ggrepel
+#r-knitr
+#r-plotly
+#bioconductor-rtracklayer
